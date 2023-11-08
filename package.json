@@ -1,0 +1,14 @@
+{
+  "name": "chat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start" : "node backend/server.js"
+  },
+  "author": "Bibek Gaire",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
