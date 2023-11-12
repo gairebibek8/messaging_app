@@ -223,4 +223,4 @@ function SideDrawer() {
   );
 }
 
-export {SideDrawer};
+export default SideDrawer;
