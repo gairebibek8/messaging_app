@@ -171,6 +171,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             d="flex"
             justifyContent={{ base: "space-between" }}
             alignItems="center"
+            
           >
             <IconButton
               d={{ base: "flex", md: "none" }}
@@ -197,12 +198,13 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
               ))}
           </Text>
           <Box
+            overflow="hidden" 
             d="flex"
             flexDir="column"
             justifyContent="flex-end"
             p={3}
             bg="#E8E8E8"
-            w="100%"
+            w="80%"
             h="100%"
             borderRadius="lg"
             overflowY="hidden"
@@ -210,7 +212,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             {loading ? (
               <Spinner
                 size="xl"
-                w={20}
+                w={10}
                 h={20}
                 alignSelf="center"
                 margin="auto"
@@ -251,7 +253,8 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         </>
       ) : (
         // to get socket.io on same page
-        <Box d="flex" alignItems="center" justifyContent="center" h="100%">
+
+        <Box d="flex" alignItems="center" justifyContent="center" h="100%" >
           <Text fontSize="3xl" pb={3} fontFamily="Work sans">
             Click on a user to start chatting
           </Text>

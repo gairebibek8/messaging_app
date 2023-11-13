@@ -1,7 +1,7 @@
 import { Button } from "@chakra-ui/button";
 import { useDisclosure } from "@chakra-ui/hooks";
 import { Input } from "@chakra-ui/input";
-import { Box, Text } from "@chakra-ui/layout";
+import { Box, Text, Flex } from "@chakra-ui/layout";
 import {
   Menu,
   MenuButton,
@@ -124,7 +124,53 @@ function SideDrawer() {
 
   return (
     <>
-      <Box
+    <Flex
+      justifyContent="space-between"
+      alignItems="center"
+      bg="white"
+      w="100%"
+      p="5px 10px 5px 10px"
+      borderWidth="5px"
+    >
+      <Tooltip label="Search Users to chat" hasArrow placement="bottom-end">
+        <Button variant="ghost" onClick={onOpen}>
+          <i className="fas fa-search"></i>
+          <Text d={{ base: "none", md: "flex" }} px={4}>
+            Search User
+          </Text>
+        </Button>
+      </Tooltip>
+      <Text fontSize="2xl" fontFamily="Work sans">
+        Chat-Me
+      </Text>
+      <Flex alignItems="center">
+        {/* Search icon */}
+        {/* Chat-Me text */}
+        <Menu>
+          <MenuButton p={1}>
+            <NotificationBadge count={notification.length} effect={Effect.SCALE} />
+            <BellIcon fontSize="2xl" m={1} />
+          </MenuButton>
+          <MenuList pl={2}>
+            {/* Notification menu items */}
+          </MenuList>
+        </Menu>
+        {/* Profile button */}
+        <Menu>
+          <MenuButton as={Button} bg="white" rightIcon={<ChevronDownIcon />}>
+            <Avatar size="sm" cursor="pointer" name={user.name} src={user.pic} />
+          </MenuButton>
+          <MenuList>
+            <ProfileModal user={user}>
+              <MenuItem>My Profile</MenuItem>
+            </ProfileModal>
+            <MenuDivider />
+            <MenuItem onClick={logoutHandler}>Logout</MenuItem>
+          </MenuList>
+        </Menu>
+      </Flex>
+    </Flex>
+      {/* <Box
         d="flex"
         justifyContent="space-between"
         alignItems="center"
@@ -188,7 +234,7 @@ function SideDrawer() {
             </MenuList>
           </Menu>
         </div>
-      </Box>
+      </Box> */}
 
       <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay />

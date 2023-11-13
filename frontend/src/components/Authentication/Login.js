@@ -19,7 +19,8 @@ const Login = () => {
   const history = useHistory();
   const { setUser } = ChatState();
 
-  const submitHandler = async () => {
+  const submitHandler = async (e) => {
+    e.preventDefault();
     setLoading(true);
     if (!email || !password) {
       toast({
@@ -71,7 +72,7 @@ const Login = () => {
   };
 
   return (
-    <VStack spacing="10px">
+    <VStack as="form" spacing="10px"  onSubmit={submitHandler}>
       <FormControl id="email" isRequired>
         <FormLabel>Email Address</FormLabel>
         <Input
